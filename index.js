@@ -5,7 +5,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
       const allContacts = await contacts.listContacts();
-      console.log(allContacts);
+      console.table(allContacts);
       break;
     case "get":
       const oneContact = await contacts.getContactById(id);
@@ -34,7 +34,3 @@ program.parse(process.argv);
 const options = program.opts();
 invokeAction(options);
 
-// invokeAction({ action: 'list' });
-// invokeAction({action:'get',id:'rsKkOQUi80UsgVPCcLZZW'})
-// invokeAction({action:'add', name:'Marsel',email:'marsel@mail.com', phone:'0678546758'})
-// invokeAction({ action: 'remove', id: 'rsKkOQUi80UsgVPCcLZZW' });
